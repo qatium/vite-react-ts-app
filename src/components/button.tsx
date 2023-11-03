@@ -1,13 +1,14 @@
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+import { ButtonHTMLAttributes } from "react"
 
-export const Button = ({ children = "my button", ...props }: ButtonProps): JSX.Element => {
-  return <button {...props} style={buttonStyles}>{children}</button>
-}
-
-const buttonStyles: React.CSSProperties = {
-  padding: "10px 20px",
-  background: "#0099cc",
-  border: "none",
-  borderRadius: "10px",
-  cursor: "pointer"
+export const Button = ({
+  children,
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement>): JSX.Element => {
+  return <button css={{
+    padding: "10px 20px",
+    background: "#0099cc",
+    border: "none",
+    borderRadius: "10px",
+    cursor: "pointer"
+  }} {...props}>{children}</button>
 }
